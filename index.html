@@ -3,61 +3,83 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Crestay Group | Independent Company Group</title>
-
-  <!-- SEO -->
-  <meta name="description" content="Crestay Group is an independent company group focused on building and managing structured, long-term ventures across branding, media, and consumer-driven projects.">
-  <meta name="author" content="Crestay Group">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Crestay Group">
-  <meta property="og:description" content="Independent company group focused on long-term ventures across branding and digital media.">
-  <meta property="og:type" content="website">
-
-  <link rel="icon" href="favicon.png">
+  <title>Crestay Group</title>
+  <meta name="description" content="Independent company group focused on structured, long-term ventures.">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<main class="hero">
+<main class="container">
 
-  <img src="CRESTAY-GROUP-LOGO1.png" alt="Crestay Group Logo" class="logo fade delay-1">
+  <!-- LOGO -->
+  <header class="hero-block split">
+    <img src="CRESTAY-GROUP-LOGO1.png" class="logo" alt="Crestay Group">
+  </header>
 
-  <p class="intro fade delay-2">
-    Crestay Group is an independent company group focused on building and managing
-    structured, long-term ventures across branding, media, and consumer-driven projects.
-  </p>
+  <!-- INTRO -->
+  <section class="text-block split">
+    <p>
+      Crestay Group operates as an independent company group focused on building and managing
+      structured, long-term ventures across branding, media, and related fields.
+    </p>
+  </section>
 
-  <section class="fade delay-3">
-    <h2>Our Divisions</h2>
+  <!-- DIVISIONS -->
+  <section class="divisions">
+    <div class="division slide">
+      <div class="division-text">
+        <strong>Crestay Brand</strong>
+        <span>Consumer products and brand-driven ventures.</span>
+      </div>
+      <a href="https://www.crestay.com" target="_blank">Visit website</a>
+    </div>
 
-    <div class="division">
-  <strong>Crestay Brand</strong>
-  <span>Consumer products and brand-driven ventures.</span><br>
-  <a href="https://www.crestay.com" target="_blank">Visit website</a>
-</div>
-
-
-    <div class="division">
-      <strong>Crestay Media</strong>
-      <span>Digital media, design, and web solutions.</span><br>
-  <a href="https://www.crestaymedia.com" target="_blank">Visit website</a>
+    <div class="division slide">
+      <div class="division-text">
+        <strong>Crestay Media</strong>
+        <span>Digital media, design, and web solutions.</span>
+      </div>
+      <a href="https://www.crestaymedia.com" target="_blank">Visit website</a>
     </div>
   </section>
 
-  <p class="vision fade delay-4">
-    To build companies that last — by design, not by noise.
-  </p>
+  <!-- STATEMENT -->
+  <section class="closing sweep">
+    <p>We build momentum, not just structure.</p>
+  </section>
 
-  <footer class="fade delay-5">
-    <a href="legal.html">Legal Notice</a> |
-    <a href="privacy.html">Privacy Policy</a>|
+  <!-- FOOTER -->
+  <footer class="footer slide">
+    <a href="legal.html">Legal Notice</a>
+    <a href="privacy.html">Privacy Policy</a>
     <a href="contact.html">Contact</a>
   </footer>
 
 </main>
+
+<script>
+/* split text */
+document.querySelectorAll('.split p').forEach(p => {
+  const words = p.innerText.split(' ');
+  p.innerHTML = words.map((w,i) => `<span style="--i:${i}">${w}</span>`).join(' ');
+});
+
+/* reveal engine */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('active');
+  });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('.split, .slide, .sweep').forEach(el => io.observe(el));
+
+/* background flow */
+let t = 0;
+setInterval(() => {
+  document.documentElement.style.setProperty('--flow', Math.sin(t += 0.015));
+}, 50);
+</script>
 
 </body>
 </html>
