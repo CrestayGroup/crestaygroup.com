@@ -4,106 +4,95 @@
   <meta charset="UTF-8">
   <title>Privacy Policy | Crestay Group</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="index, follow">
+  <meta name="description" content="Privacy Policy of Crestay Group.">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="page">
+<main class="container">
 
-<h1>Privacy Policy</h1>
+  <!-- TITLE -->
+  <header class="split">
+    <h1>Privacy Policy</h1>
+  </header>
 
-<p><strong>1. Introduction</strong><br>
-At Crestay Group, we take the protection of your personal data very seriously. Your data is treated confidentially and in accordance with German and European data protection laws, especially the General Data Protection Regulation (GDPR).
-</p>
+  <!-- CONTENT -->
+  <section class="slide">
 
-<p><strong>2. Collection and Processing of Data</strong><br>
-We only collect and process personal data in the following cases:
-</p>
-<ul>
-  <li>When you contact us via email or the contact form.</li>
-  <li>When you voluntarily provide personal information (e.g., name, email address).</li>
-</ul>
+    <p>
+      Crestay Group processes personal data in accordance with the General Data Protection Regulation (GDPR).
+    </p>
 
-<p><strong>3. Types of Data Collected</strong></p>
-<ul>
-  <li>Full name (if provided through the contact form).</li>
-  <li>Email address.</li>
-  <li>Phone number (if provided).</li>
-  <li>Content of your message or inquiry.</li>
-</ul>
+    <p>
+      Personal data is collected only when voluntarily provided through direct contact.
+    </p>
 
-<p><strong>4. Purpose of Data Use</strong><br>
-Your personal data is used exclusively for:
-</p>
-<ul>
-  <li>Responding to your inquiries.</li>
-  <li>Managing client relations.</li>
-  <li>Improving our website and services.</li>
-</ul>
+    <ul>
+      <li>Name</li>
+      <li>Email address</li>
+      <li>Message content</li>
+    </ul>
 
-<p><strong>5. Sharing Data with Third Parties</strong><br>
-Your data will not be shared with any third party unless legally required or with your consent.
-</p>
-<p>
-In case we work with service providers in the future, their details and privacy policies will be referenced.
-</p>
+    <p>
+      Data is used exclusively to respond to inquiries and is not shared with third parties unless legally required.
+    </p>
 
-<p><strong>6. Cookies</strong><br>
-Currently, this website does not use cookies or tracking tools.
-</p>
-<p>
-If added in the future (e.g., Google Analytics), we will update this policy and request consent.
-</p>
+    <p>
+      No cookies or tracking technologies are currently used.
+    </p>
 
-<p><strong>7. Data Security</strong><br>
-We implement appropriate technical and organizational measures to protect your data from unauthorized access, misuse, or loss.
-</p>
+    <p>
+      You have the right to access, correct, delete, or restrict the processing of your data.
+    </p>
 
-<p><strong>8. User Rights (GDPR)</strong></p>
-<ul>
-  <li>Right to access your data</li>
-  <li>Right to rectify incorrect data</li>
-  <li>Right to delete your data</li>
-  <li>Right to restrict processing</li>
-  <li>Right to object</li>
-  <li>Right to data portability</li>
-</ul>
+    <p>
+      For data-related requests:<br>
+      <strong>office@crestay.com</strong>
+    </p>
 
-<p><strong>9. Data Retention</strong><br>
-Data is stored only as long as necessary to process your inquiry or meet legal obligations. After that, data is securely deleted.
-</p>
+    <p>
+      Effective date: 20.12.2025<br>
+      © 2025 Crestay Group
+    </p>
 
-<p><strong>10. Contact for Data Protection</strong><br>
-Crestay Group<br>
-Gaussstr.9,40235 Düsseldorf<br>
-Email: <a href="mailto:office@crestay.com" style="color: inherit; text-decoration: none;">
-  office@crestay.com
-</a>
+  </section>
 
-
-<p><strong>11. Policy Updates</strong><br>
-This privacy policy may be updated periodically to reflect new legal requirements or added services.
-</p>
-
-<p>
-Current version is effective as of <strong>20.12.2025</strong><br>
-© 2025 Crestay Group
-</p>
-
-</div>
-<div style="text-align: center;">
-  <footer>
-    <a href="index.html">Home</a> |
-    <a href="legal.html">Legal Notice</a> |
+  <!-- FOOTER -->
+  <footer class="footer slide" style="margin-top:60px;">
+    <a href="index.html">Home</a>
+    <a href="legal.html">Legal Notice</a>
     <a href="contact.html">Contact</a>
   </footer>
-</div>
+
+</main>
+
+<!-- SAME MOTION ENGINE AS INDEX -->
+<script>
+  /* split text (title only) */
+  document.querySelectorAll('.split h1').forEach(el => {
+    const words = el.innerText.split(' ');
+    el.innerHTML = words.map((w,i) => `<span style="--i:${i}">${w}</span>`).join(' ');
+  });
+
+  /* reveal */
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('active');
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll('.split, .slide').forEach(el => io.observe(el));
+
+  /* background flow (shared with index) */
+  let t = 0;
+  setInterval(() => {
+    document.documentElement.style.setProperty('--flow', Math.sin(t += 0.015));
+  }, 50);
+</script>
 
 </body>
 </html>
 
-  
   
 
