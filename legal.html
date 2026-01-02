@@ -4,79 +4,101 @@
   <meta charset="UTF-8">
   <title>Legal Notice | Crestay Group</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="index, follow">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="page">
+<main class="container">
 
-<h1>Legal Notice</h1>
+  <!-- TITLE -->
+  <header class="split">
+    <h1>Legal Notice</h1>
+  </header>
 
-<p><strong>Information according to § 5 TMG</strong></p>
+  <!-- CONTENT (UNCHANGED TEXT) -->
+  <section class="slide">
 
-<p>
-<strong>Crestay Group</strong><br>
-Sole Proprietorship<br>
-Owner: Mohamad Hussam Abosaleh<br>
-Gaussstr. 9, 40235 Düsseldorf, Germany
-</p>
+    <p><strong>Information according to § 5 TMG</strong></p>
 
-<p><strong>Contact</strong><br>
-Email: <a href="mailto:office@crestay.com" style="color: inherit; text-decoration: none;">
-  office@crestay.com
-</a>
+    <p>
+      <strong>Crestay Group</strong><br>
+      Sole Proprietorship<br>
+      Owner: Mohamad Hussam Abosaleh<br>
+      Gaussstr. 9, 40235 Düsseldorf, Germany
+    </p>
 
+    <p>
+      <strong>Contact</strong><br>
+      office@crestay.com
+    </p>
 
-<p>
-<strong>Business Registration Number (Gewerbenummer):</strong><br>
-05111000
-</p>
+    <p>
+      <strong>Business Registration Number</strong><br>
+      05111000
+    </p>
 
-<p>
-<strong>VAT ID</strong><br>
-Tax identification number according to Article 27a of the Value Added Tax Act<br>
-<strong>DE456209765</strong> (USt-IdNr.)<br>
-VAT-exempt according to §19 UStG
-</p>
+    <p>
+      <strong>VAT ID</strong><br>
+      DE456209765<br>
+      VAT-exempt according to §19 UStG
+    </p>
 
-<p><strong>Disclaimer</strong><br>
-While the content has been carefully reviewed, we assume no responsibility for the content of external links. The operators of the linked websites are solely responsible.
-</p>
+    <p>
+      <strong>Disclaimer</strong><br>
+      We assume no liability for external links. Responsibility lies with the respective operators.
+    </p>
 
-<p><strong>EU Dispute Resolution (ODR)</strong><br>
-The European Commission provides a platform for online dispute resolution (ODR):<br>
-<a href="https://ec.europa.eu/consumers/odr/" target="_blank">
-https://ec.europa.eu/consumers/odr/
-</a>
-</p>
+    <p>
+      <strong>EU Dispute Resolution</strong><br>
+      https://ec.europa.eu/consumers/odr/
+    </p>
 
-<p><strong>Consumer Dispute Resolution / Global Arbitration Board</strong><br>
-We are neither willing nor obligated to participate in dispute resolution proceedings before the Consumer Arbitration Board.
-</p>
+    <p>
+      <strong>Responsible for Content</strong><br>
+      Mohamad Hussam Abosaleh
+    </p>
 
-<p>
-<strong>Responsible for Content (§ 55 Abs. 2 RStV):</strong><br>
-Mohamad Hussam Abosaleh
-</p>
+    <p>© 2025 Crestay Group</p>
 
-<p>
-Source: eRecht24
-</p>
+  </section>
 
-<p>© 2025 Crestay Group</p>
-
-
-<div style="text-align: center;">
-  <footer>
-    <a href="index.html">Home</a> |
-    <a href="contact.html">Contact</a> |
+  <!-- FOOTER -->
+  <footer class="footer slide" style="margin-top:40px;">
+    <a href="index.html">Home</a>
     <a href="privacy.html">Privacy Policy</a>
+    <a href="contact.html">Contact</a>
   </footer>
-</div>
+
+</main>
+
+<!-- SAME MOTION ENGINE AS INDEX -->
+<script>
+  /* split title only */
+  document.querySelectorAll('.split h1').forEach(el => {
+    const words = el.innerText.split(' ');
+    el.innerHTML = words.map((w,i) => `<span style="--i:${i}">${w}</span>`).join(' ');
+  });
+
+  /* reveal */
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('active');
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll('.split, .slide').forEach(el => io.observe(el));
+
+  /* background flow (shared with index) */
+  let t = 0;
+  setInterval(() => {
+    document.documentElement.style.setProperty('--flow', Math.sin(t += 0.015));
+  }, 50);
+</script>
+
 </body>
 </html>
+
 
 
 
